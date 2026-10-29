@@ -1,0 +1,144 @@
+binds {
+
+    Mod+Shift+ESCAPE                     { show-hotkey-overlay; } // Hiện bảng phím tắt
+
+    // Ứng dụng
+    Mod+Return                          hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; } // Mở terminal
+    Mod+Space                           hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; } // Mở app launcher
+    Mod+B                               hotkey-overlay-title="Open Browser: chromium" { spawn "chromium"; } // Mở trình duyệt
+    Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "noctalia msg session lock"; } // Khoá màn hình
+    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "noctalia msg panel-toggle session"; } // Menu phiên (đăng xuất/tắt máy)
+    Mod+E                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; } // Mở quản lý file
+
+    // Điều khiển âm thanh
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-up"; } // Tăng âm lượng
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-down"; } // Giảm âm lượng
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; } // Tắt/bật tiếng loa
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; } // Tắt/bật mic
+    XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia msg media next"; } // Bài tiếp theo
+    XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia msg media previous"; } // Bài trước
+    XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia msg media toggle"; } // Phát/tạm dừng
+    XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia msg media toggle"; } // Phát/tạm dừng
+
+    // Điều khiển độ sáng
+    XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; } // Tăng độ sáng
+    XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; } // Giảm độ sáng
+
+    // Di chuyển và focus cửa sổ
+    Mod+Q                               { close-window; } // Đóng cửa sổ
+
+    Mod+Left                            { focus-column-left; } // Focus cột bên trái
+    Mod+H                               { focus-column-left; } // Focus cột bên trái
+    Mod+Right                           { focus-column-right; } // Focus cột bên phải
+    Mod+L                               { focus-column-right; } // Focus cột bên phải
+    Mod+Alt+WheelScrollDown             { focus-column-right; }
+    Mod+Alt+WheelScrollUp               { focus-column-left; }
+    
+
+    //Mod+Up                              { focus-window-up; } // Focus cửa sổ phía trên
+    Mod+K                               { focus-window-up; } // Focus cửa sổ phía trên
+    //Mod+Down                            { focus-window-down; } // Focus cửa sổ phía dưới
+    Mod+J                               { focus-window-down; } // Focus cửa sổ phía dưới
+    Mod+UP                         { focus-workspace-up; }   // Chuyển tới workspace phía trên
+    Mod+Down                       { focus-workspace-down; } // Chuyển tới workspace phía dưới
+
+    Mod+CTRL+Left                       { move-column-left; } // Di chuyển cột sang trái
+    Mod+CTRL+H                          { move-column-left; } // Di chuyển cột sang trái
+    Mod+CTRL+Right                      { move-column-right; } // Di chuyển cột sang phải
+    Mod+CTRL+L                          { move-column-right; } // Di chuyển cột sang phải
+    //Mod+CTRL+UP                         { move-window-up; } // Di chuyển cửa sổ lên
+    Mod+CTRL+K                          { move-window-up; } // Di chuyển cửa sổ lên
+    //Mod+CTRL+Down                       { move-window-down; } // Di chuyển cửa sổ xuống
+    Mod+CTRL+J                          { move-window-down; } // Di chuyển cửa sổ xuống
+    Mod+CTRL+UP                   { move-column-to-workspace-up; }   // Đưa cửa sổ sang workspace phía trên
+    Mod+CTRL+Down                 { move-column-to-workspace-down; } // Đưa cửa sổ sang workspace phía dưới
+
+    Mod+Home                            { focus-column-first; } // Focus cột đầu tiên
+    Mod+End                             { focus-column-last; } // Focus cột cuối cùng
+    Mod+CTRL+Home                       { move-column-to-first; } // Đưa cột về đầu
+    Mod+CTRL+End                        { move-column-to-last; } // Đưa cột về cuối
+
+    Mod+Shift+Left                      { focus-monitor-left; } // Focus màn hình bên trái
+    Mod+Shift+Right                     { focus-monitor-right; } // Focus màn hình bên phải
+    Mod+Shift+UP                        { focus-monitor-up; } // Focus màn hình phía trên
+    Mod+Shift+Down                      { focus-monitor-down; } // Focus màn hình phía dưới
+
+    Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; } // Đưa cột sang màn hình bên trái
+    Mod+Shift+CTRL+Right                { move-column-to-monitor-right; } // Đưa cột sang màn hình bên phải
+    Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; } // Đưa cột sang màn hình phía trên
+    Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; } // Đưa cột sang màn hình phía dưới
+
+    // Chuyển workspace
+    Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; } // Chuyển workspace xuống
+    Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; } // Chuyển workspace lên
+    Mod+CTRL+WheelScrollDown            cooldown-ms=150 { move-column-to-workspace-down; } // Đưa cột sang workspace dưới
+    Mod+CTRL+WheelScrollUp              cooldown-ms=150 { move-column-to-workspace-up; } // Đưa cột sang workspace trên
+
+    Mod+WheelScrollRight                { focus-column-right; } // Focus cột bên phải
+    Mod+WheelScrollLeft                 { focus-column-left; } // Focus cột bên trái
+    Mod+CTRL+WheelScrollRight           { move-column-right; } // Di chuyển cột sang phải
+    Mod+CTRL+WheelScrollLeft            { move-column-left; } // Di chuyển cột sang trái
+
+    Mod+Shift+WheelScrollDown           { focus-column-right; } // Focus cột bên phải
+    Mod+Shift+WheelScrollUp             { focus-column-left; } // Focus cột bên trái
+    Mod+CTRL+Shift+WheelScrollDown      { move-column-right; } // Di chuyển cột sang phải
+    Mod+CTRL+Shift+WheelScrollUp        { move-column-left; } // Di chuyển cột sang trái
+
+    Mod+1                                { focus-workspace 1; } // Chuyển đến workspace 1
+    Mod+2                                { focus-workspace 2; } // Chuyển đến workspace 2
+    Mod+3                                { focus-workspace 3; } // Chuyển đến workspace 3
+    Mod+4                                { focus-workspace 4; } // Chuyển đến workspace 4
+    Mod+5                                { focus-workspace 5; } // Chuyển đến workspace 5
+    Mod+6                                { focus-workspace 6; } // Chuyển đến workspace 6
+    Mod+7                                { focus-workspace 7; } // Chuyển đến workspace 7
+    Mod+8                                { focus-workspace 8; } // Chuyển đến workspace 8
+    Mod+9                                { focus-workspace 9; } // Chuyển đến workspace 9
+
+    Mod+CTRL+1                          { move-column-to-workspace 1; } // Đưa cột sang workspace 1
+    Mod+CTRL+2                          { move-column-to-workspace 2; } // Đưa cột sang workspace 2
+    Mod+CTRL+3                          { move-column-to-workspace 3; } // Đưa cột sang workspace 3
+    Mod+CTRL+4                          { move-column-to-workspace 4; } // Đưa cột sang workspace 4
+    Mod+CTRL+5                          { move-column-to-workspace 5; } // Đưa cột sang workspace 5
+    Mod+CTRL+6                          { move-column-to-workspace 6; } // Đưa cột sang workspace 6
+    Mod+CTRL+7                          { move-column-to-workspace 7; } // Đưa cột sang workspace 7
+    Mod+CTRL+8                          { move-column-to-workspace 8; } // Đưa cột sang workspace 8
+    Mod+CTRL+9                          { move-column-to-workspace 9; } // Đưa cột sang workspace 9
+
+    Mod+TAB                             { focus-workspace-previous; } // Quay lại workspace trước đó
+
+    // Điều chỉnh layout
+    Mod+CTRL+F                          { expand-column-to-available-width; } // Mở rộng cột hết chiều rộng khả dụng
+    Mod+C                               { center-column; } // Căn giữa cột
+    Mod+CTRL+C                          { center-visible-columns; } // Căn giữa các cột đang hiển thị
+    Mod+Minus                           { set-column-width "-10%"; } // Thu nhỏ chiều rộng cột
+    Mod+Equal                           { set-column-width "+10%"; } // Mở rộng chiều rộng cột
+    Mod+Shift+Minus                     { set-window-height "-10%"; } // Thu nhỏ chiều cao cửa sổ
+    Mod+Shift+Equal                     { set-window-height "+10%"; } // Mở rộng chiều cao cửa sổ
+
+    // Chế độ cửa sổ
+    Mod+T                               { toggle-window-floating; } // Bật/tắt chế độ nổi
+    //Mod+Shift+F                               { fullscreen-window; } // Toàn màn hình
+    Mod+Alt+F                               { fullscreen-window; } // Toàn màn hình
+    Mod+Shift+F                               { maximize-column; } // Toàn màn hình
+    //Mod+F                               { maximize-column; } // Toàn màn hình
+    Mod+F { switch-preset-column-width; } // Đổi chiều rộng cột: 33 → 50 → 66 → 100%
+    Mod+W                               { toggle-column-tabbed-display; } // Bật/tắt chế độ tab cho cột
+
+    // Chụp màn hình
+    Print                                { screenshot; }         // Chụp vùng chọn
+    Mod+Print                          { screenshot-screen; }  // Chụp toàn màn hình
+    Shift+Print                            { screenshot-window; }  // Chụp cửa sổ hiện tại
+
+    // Phím thoát khẩn cấp — dùng khi app fullscreen chặn phím tắt, tắt trình chặn phím tạm thời
+    // Mod+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Thoát / nguồn
+    CTRL+ALT+Delete                     { quit; } // Thoát Niri
+    Mod+Shift+P                         { power-off-monitors; } // Tắt màn hình (hữu ích cho OLED hoặc riêng tư)
+    Mod+O                               repeat=false { toggle-overview; } // Bật/tắt overview
+    Mod+Escape { toggle-overview; }
+
+    Mod+I hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; } // Mở Settings Noctalia
+
+    Mod+F10 hotkey-overlay-title="Toggle Audio Laptop/HDMI" { spawn "/home/thanhvu/.local/bin/toggle-audio"; }
+}

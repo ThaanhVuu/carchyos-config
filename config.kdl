@@ -1,0 +1,23 @@
+include "./cfg/animation.kdl"
+include "./cfg/autostart.kdl"
+include "./cfg/keybinds.kdl"
+include "./cfg/input.kdl"
+include "./cfg/display.kdl"
+include "./cfg/layout.kdl"
+include "./cfg/rules.kdl"
+include "./cfg/misc.kdl"
+
+layer-rule {
+    match namespace="^noctalia-(dock|bar-.*|background|launcher-overlay.*|panel|attached-panel|notification|osd)$"
+    background-effect {
+        xray false
+    }
+}
+
+blur {
+    passes 2
+    offset 2.0
+    noise 0.01
+    saturation 1
+}
+

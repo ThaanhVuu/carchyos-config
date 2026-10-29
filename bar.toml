@@ -1,0 +1,24 @@
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
+
+[widget.brightness]
+show_label = false
+
+
+[widget.workspaces]
+style = "regular"
+show_labels = true
+label_source = "id"
+active_pill_size = 1.0
+inactive_pill_size = 1.0
+focused_color = "primary"
+change_color_on_hover = true
+
+[widget.battery]
+
+[bar.default]
+
